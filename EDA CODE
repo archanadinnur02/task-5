@@ -1,0 +1,55 @@
+# Import necessary libraries
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+# Load the Titanic dataset (available in seaborn)
+df = sns.load_dataset("titanic")
+
+# Display basic information
+print("=== Data Info ===")
+print(df.info())
+
+# Display summary statistics
+print("\n=== Summary Statistics ===")
+print(df.describe(include='all'))
+
+# Display value counts for key categorical variables
+print("\n=== Value Counts ===")
+print("Sex:\n", df['sex'].value_counts())
+print("\nClass:\n", df['class'].value_counts())
+print("\nEmbarked:\n", df['embarked'].value_counts())
+
+# Correlation matrix for numeric fields
+correlation = df.corr(numeric_only=True)
+
+# Set Seaborn style
+sns.set(style="whitegrid")
+plt.figure(figsize=(16, 12))
+
+# Plot 1: Age distribution
+plt.subplot(2, 2, 1)
+sns.histplot(df['age'].dropna(), kde=True, bins=30, color='skyblue')
+plt.title("Age Distribution")
+
+# Plot 2: Age distribution by passenger class
+plt.subplot(2, 2, 2)
+sns.boxplot(data=df, x='class', y='age', palette='Set3')
+plt.title("Age by Passenger Class")
+
+# Plot 3: Survival count by sex
+plt.subplot(2, 2, 3)
+sns.countplot(data=df, x='sex', hue='survived', palette='pastel')
+plt.title("Survival Count by Sex")
+
+# Plot 4: Correlation heatmap
+plt.subplot(2, 2, 4)
+sns.heatmap(correlation, annot=True, cmap='coolwarm', fmt=".2f")
+plt.title("Correlation Heatmap")
+
+# Adjust layout
+plt.tight_layout()
+plt.show()
+
+# Optional: Save the visualizations to PDF
+# plt.savefig("titanic_eda_report.pdf")

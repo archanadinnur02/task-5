@@ -1,0 +1,62 @@
+bjective:
+Explore the Titanic dataset using visual and statistical techniques to identify patterns, trends, and anomalies.
+
+🛠 Tools Used:
+Python
+
+Jupyter Notebook
+
+Pandas
+
+Seaborn
+
+Matplotlib
+
+📊 Dataset:
+Titanic Dataset
+You can find the dataset here (if no specific link was given in the task).
+Alternatively, use:
+
+python
+Copy
+Edit
+import seaborn as sns
+df = sns.load_dataset('titanic')
+📁 Deliverables:
+✅ Jupyter Notebook (EDA_Titanic.ipynb)
+
+✅ PDF Report (EDA_Titanic_Report.pdf)
+
+✅ GitHub Repository (with code, report, and README)
+
+📍 Steps Followed in the Notebook:
+1. Data Loading & Basic Exploration
+df.info(), df.describe(), df.value_counts()
+
+Checked for missing values
+
+2. Univariate Analysis
+Plots: Histogram, Boxplot
+
+Observations for each numerical and categorical feature
+
+3. Bivariate Analysis
+Correlation matrix using sns.heatmap()
+
+Pairwise relationships with sns.pairplot()
+
+Survival vs. gender, class, age
+
+4. Multivariate Analysis
+Combined multiple features (e.g., Age vs. Survival by Gender)
+
+Used sns.catplot(), sns.violinplot()
+
+5. Statistical Observations
+Outlier detection (boxplots)
+
+Skewness and transformations (if any)
+
+6. Summary of Findings
+Listed key insights in a structured format
+
